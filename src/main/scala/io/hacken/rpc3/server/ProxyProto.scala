@@ -1,4 +1,4 @@
-package io.syspulse.rpc3.server
+package io.hacken.rpc3.server
 
 import scala.collection.immutable
 

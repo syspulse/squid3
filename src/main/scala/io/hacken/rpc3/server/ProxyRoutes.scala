@@ -1,4 +1,4 @@
-package io.syspulse.rpc3.server
+package io.hacken.rpc3.server
 
 import com.typesafe.scalalogging.Logger
 import io.jvm.uuid._
@@ -51,10 +51,10 @@ import io.syspulse.skel.Command
 // import io.syspulse.skel.auth.permissions.Permissions
 // import io.syspulse.skel.auth.RouteAuthorizers
 
-import io.syspulse.rpc3._
-import io.syspulse.rpc3.store.ProxyRegistry
-import io.syspulse.rpc3.store.ProxyRegistry._
-import io.syspulse.rpc3.server._
+import io.hacken.rpc3._
+import io.hacken.rpc3.store.ProxyRegistry
+import io.hacken.rpc3.store.ProxyRegistry._
+import io.hacken.rpc3.server._
 import io.syspulse.skel.service.telemetry.TelemetryRegistry
 import akka.http.scaladsl.server.AuthorizationFailedRejection
 

@@ -12,7 +12,7 @@ Test / parallelExecution := true
 // Non-concurrent execution is needed for Server with starting / stopping HttpServer
 Global / concurrentRestrictions += Tags.limit(Tags.Test, 1)
 
-licenses := Seq(("ASF2", url("https://www.apache.org/licenses/LICENSE-2.0")))
+licenses := Seq(("License", url("https://github.com/haas-labs/ext-proto/blob/main/LICENSE.md")))
 
 initialize ~= { _ =>
   System.setProperty("config.file", "conf/application.conf")
@@ -52,18 +52,18 @@ lazy val dockerBuildxSettings = Seq(
 )
 
 val dockerRegistryLocal = Seq(
-  dockerRepository := Some("docker.u132.net:5000"),
-  dockerUsername := Some("syspulse"),
+  dockerRepository := Some("$AWS_ACCOUNT.dkr.ecr.${AWS_REGION}.amazonaws.com"),
+  dockerUsername := Some("haas"),
   // this fixes stupid idea of adding registry in publishLocal 
   dockerAlias := DockerAlias(registryHost=None,username = dockerUsername.value, name = name.value, tag = Some(version.value))
 )
 
 val dockerRegistryDockerHub = Seq(
-  dockerUsername := Some("syspulse")
+  dockerUsername := Some("haas")
 )
 
 val sharedConfigDocker = Seq(
-  maintainer := "Dev0 <dev0@syspulse.io>",
+  maintainer := "Dev0 <dev0@haas.com>",
   // openjdk:8-jre-alpine - NOT WORKING ON RP4+ (arm64). Crashes JVM in kubernetes
   // dockerBaseImage := "openjdk:8u212-jre-alpine3.9", //"openjdk:8-jre-alpine",
 
@@ -77,7 +77,7 @@ val sharedConfigDocker = Seq(
   // bashScriptExtraDefines += """ls -l /mnt/s3/""",
   
   dockerUpdateLatest := true,
-  dockerUsername := Some("syspulse"),
+  dockerUsername := Some("haas"),
   dockerExposedVolumes := Seq(s"${appDockerRoot}/logs",s"${appDockerRoot}/conf",s"${appDockerRoot}/data","/data"),
   //dockerRepository := "docker.io",
   dockerExposedPorts := Seq(8080),
@@ -307,7 +307,7 @@ lazy val squid3 = (project in file("."))
     sharedConfigDocker,
     dockerBuildxSettings,
 
-    appDockerConfig("squid3","io.syspulse.rpc3.App"),
+    appDockerConfig("squid3","io.hacken.rpc3.App"),
 
     libraryDependencies ++= libSkel ++ Seq(  
 

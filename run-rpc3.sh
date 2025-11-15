@@ -10,7 +10,7 @@ export SITE=${SITE:-$CONF}
 
 export ACCESS_TOKEN=${ACCESS_TOKEN-`cat ACCESS_TOKEN 2>/dev/null`}
 
-MAIN=io.syspulse.rpc3.App
+MAIN=io.hacken.rpc3.App
 
 >&2 echo "app: $APP"
 >&2 echo "site: $SITE"

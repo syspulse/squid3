@@ -1,4 +1,4 @@
-package io.syspulse.rpc3.pool
+package io.hacken.rpc3.pool
 
 import scala.util.Try
 import scala.util.{Success,Failure}
@@ -12,8 +12,8 @@ import com.typesafe.scalalogging.Logger
 import io.jvm.uuid._
 import scala.concurrent.Future
 
-import io.syspulse.rpc3.Config
-import io.syspulse.rpc3.cache.ProxyCache
+import io.hacken.rpc3.Config
+import io.hacken.rpc3.cache.ProxyCache
 
 // --- Session -------------------------------------------------------------------------------
 abstract class RpcSession(pool:Seq[String]) {
